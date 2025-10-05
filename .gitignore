@@ -1,0 +1,44 @@
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Log files
+*.log
+
+# OS specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-*
+
+# Test directories
+test/
+tests/
+tmp/
+
+# Build artifacts
+dist/
+build/
+
+# Archives
+*.tar.gz
+*.zip
+*.tar
+*.gz
+
+# Downloaded packages
+*.deb
+*.rpm
+*.pkg.tar.zst

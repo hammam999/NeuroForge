@@ -1,0 +1,74 @@
+name: Test Installers
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test-ubuntu:
+    name: Test on Ubuntu
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y curl git jq
+        
+    - name: Make scripts executable
+      run: chmod +x *.sh
+      
+    - name: Test help command
+      run: ./clone-and-install.sh --help
+      
+    - name: Validate script syntax
+      run: bash -n *.sh
+
+  test-fedora:
+    name: Test on Fedora
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install dependencies
+      run: |
+        dnf install -y curl git jq
+        
+    - name: Make scripts executable
+      run: chmod +x *.sh
+      
+    - name: Test help command
+      run: ./clone-and-install.sh --help
+      
+    - name: Validate script syntax
+      run: bash -n *.sh
+
+  test-arch:
+    name: Test on Arch Linux
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install dependencies
+      run: |
+        pacman -Sy --noconfirm curl git jq
+        
+    - name: Make scripts executable
+      run: chmod +x *.sh
+      
+    - name: Test help command
+      run: ./clone-and-install.sh --help
+      
+    - name: Validate script syntax
+      run: bash -n *.sh

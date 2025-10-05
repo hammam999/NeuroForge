@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NeuroForge Installer
+Comment=Forge Your AI Development Environment
+Exec=/home/hmam/Videos/STORE/mcp-server/kiro-windsrf-installr/gui-installer.sh
+Icon=/home/hmam/Videos/STORE/mcp-server/kiro-windsrf-installr/Kiro_1024x1024x32.png
+Terminal=true
+Categories=Development;Utility;
+Keywords=installer;kiro;windsurf;ide;ai;
+StartupNotify=true
